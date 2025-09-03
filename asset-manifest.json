@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/my-rehearsal-app/static/css/main.e6c13ad2.css",
+    "main.js": "/my-rehearsal-app/static/js/main.3f38ea38.js",
+    "static/js/453.ad7c41b8.chunk.js": "/my-rehearsal-app/static/js/453.ad7c41b8.chunk.js",
+    "index.html": "/my-rehearsal-app/index.html",
+    "main.e6c13ad2.css.map": "/my-rehearsal-app/static/css/main.e6c13ad2.css.map",
+    "main.3f38ea38.js.map": "/my-rehearsal-app/static/js/main.3f38ea38.js.map",
+    "453.ad7c41b8.chunk.js.map": "/my-rehearsal-app/static/js/453.ad7c41b8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.3f38ea38.js"
+  ]
+}
