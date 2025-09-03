@@ -5,10 +5,19 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'firebase/auth';
 import { getFirestore, collection, onSnapshot } from 'firebase/firestore';
 
-// Global variables provided by the Canvas environment for Firebase
-const firebaseConfig = typeof window.__firebase_config !== 'undefined' ? JSON.parse(window.__firebase_config) : {};
+// Please replace this with your Firebase project's configuration.
+// You can find it in your Firebase project's settings page.
+// Go to Project settings > General > Your apps > Firebase SDK snippet > Config
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
 const appId = "wegobe"; // Use the specified project name
-const initialAuthToken = typeof window.__initial_auth_token !== 'undefined' ? window.__initial_auth_token : null;
 
 // Initialize Firebase app and services
 const app = initializeApp(firebaseConfig);
@@ -43,11 +52,7 @@ const App = () => {
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
       if (!user) {
         try {
-          if (initialAuthToken) {
-            await signInWithCustomToken(auth, initialAuthToken);
-          } else {
-            await signInAnonymously(auth);
-          }
+          await signInAnonymously(auth);
         } catch (error) {
           console.error("Firebase Auth error:", error);
         }
@@ -130,8 +135,7 @@ const App = () => {
                   });
                 }
               }}
-              className={`p-2 rounded-xl text-xs font-semibold transform transition-transform duration-200 hover:scale-105 ${
-                slot.booked
+              className={`p-2 rounded-xl text-xs font-semibold transform transition-transform duration-200 hover:scale-105 ${slot.booked
                   ? 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-70'
                   : 'bg-green-500 text-white hover:bg-green-600 shadow-md'
               }`}
